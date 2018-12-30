@@ -24,15 +24,9 @@ def main():
         "--output-directory",
         help="define a folder for the file of static site",
     )
+    parser.add_argument("-t", "--template-directory")
     parser.add_argument(
-        "-t",
-        "--template-directory",,
-    )
-    parser.add_argument(
-        "-h",
-        "--help",
-        help="define a folder for the file of static site",
-    )
+        "-h", "-help")
     args = parser.parse_args()
     if args == "-i":
         file = glob.glob(
@@ -44,8 +38,6 @@ def main():
         print("Et il y a :{file}")
     if args.verbose:
         print("verbosity turned on")
-
-
     # glob.glob permet de trouver un motif et retourne une liste d'element contenant ce motif
     # pour notre cas cela retourne tout les fichiers markdown dans le chemin indique
     # with open(file,"r")file:
