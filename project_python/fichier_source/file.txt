@@ -1,3 +1,14 @@
-python 
 # texte de dimensio 
+
 ## texte de dimension
+
+http://quelquechose.com
+
+*un texte*
+
+
+Le contenu de ma première puce
+
+Le contenu de ma seconde puce
+
+Et encore une autre puce
