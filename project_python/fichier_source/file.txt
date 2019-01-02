@@ -2,13 +2,12 @@
 
 ## texte de dimension
 
-http://quelquechose.com
+[quelquechose](http://quelquechose.com)
+
 
 *un texte*
 
 
-Le contenu de ma première puce
-
-Le contenu de ma seconde puce
-
-Et encore une autre puce
+1. Le contenu de ma premiere puce
+2. Le contenu de ma seconde puce
+3. Et encore une autre puce

@@ -8,44 +8,29 @@ import glob
 import getopt
 
 
-def main():
-    # extern = input()
-    parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "-v", "--verbose", help="increase output verbosity", action="store_true"
-    )
+def main(argv):
+    print("chemin du dossier markdown est: ", argv[3])
+    file = glob.glob("/*.md")
+    print(file)
+    print("chemin du dossier contenant les fichier du site est: ", argv[5])
+    parser = argparse.ArgumentParser(description="creation de site statique")
     parser.add_argument(
         "-i",
-        "--input-directory",
-        help="define a folder for the file in markdown",
+        "--inputd",
+        default="chemin",
+        action="append",
+        help="chemin absolue des fichiers makedown",
     )
     parser.add_argument(
         "-o",
-        "--output-directory",
-        help="define a folder for the file of static site",
+        "--outputd",
+        help="chemin absolue des fichiers html du site",
+        required=False,
     )
-    parser.add_argument("-t", "--template-directory")
-    parser.add_argument(
-        "-h", "-help")
+    parser.add_argument("-t", "--templated", required=False)
     args = parser.parse_args()
-    if args == "-i":
-        file = glob.glob(
-            "/home/eric/workspace_python/project_python/fichier source/*.md"
-        )
-        print(
-            "les fichiers mardown se trouve : /home/eric/workspace_python/project_python/fichier source/"
-        )
-        print("Et il y a :{file}")
-    if args.verbose:
-        print("verbosity turned on")
-    # glob.glob permet de trouver un motif et retourne une liste d'element contenant ce motif
-    # pour notre cas cela retourne tout les fichiers markdown dans le chemin indique
-    # with open(file,"r")file:
-    #    file.read(line)
-    # with open("", "w") as file:
-    # file.write("<!DOCTYPE html>")
-    # file.write("<html>")
+    print(argv.inputd)
 
 
 if __name__ == "__main__":
-    main()
+    main(sys.argv)
