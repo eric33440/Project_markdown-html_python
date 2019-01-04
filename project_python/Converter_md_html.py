@@ -20,13 +20,18 @@ def main():
         "/home/eric/workspace_python/project_python/fichier_site_statique/*.txt"
     )
     path = file[0]
-    # glob.glob renvoie une list comme on est interresse par le premier
-    # car normalement dans ce fichier il en contient que 1 et cela s'applique aussi
+    # glob.glob renvoie une list
+    # comme on est interresse par le premier element
+    # car normalement dans ce fichier il en contient
+    # que 1
+    # cela s'applique aussi
     # pour file1
 
     file_html = file1[0]
-    #  glob.glob permet de trouver un motif et retourne une liste d'element contenant ce motif
-    #  pour notre cas cela retourne tout les fichiers markdown dans le chemin indique
+    #  glob.glob permet de trouver un motif et
+    #  retourne une liste d'element contenant ce motif
+    #  pour notre cas cela retourne tout les fichiers
+    # markdown dans le chemin indique
     with open(path, "r") as fichiermarkdown:
         #  Lecture du fichier qui contient le code markdown
         lignes = fichiermarkdown.readlines()
