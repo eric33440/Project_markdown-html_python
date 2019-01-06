@@ -14,11 +14,42 @@ def main(argv):
     # n'est pas vide alors le code suivant 
     # peut s'executer
         if "-i" in argv:
-            file = glob.glob("argv[2]")
-            print(file)
+            #file = os.path.join(argv[3],"*.md")
+            result = os.path.exists(argv[3])
+            if result == True:
+                path_file = os.listdir(argv[3])
+                #fait une liste de chaque fichier contenue 
+                # dans le chemin contenue dans argv
+                for ligne in path_file:
+                    # cherche le fichier de type .md est dans cet liste
+                    if ".md" in ligne:
+                        file = ligne
+                        file = os.path.join(argv[3],file)
+                        #je relie le chemin avec le nom du fichier
+                        with open(file ,"r") as file:
+                            lignes = file.readlines()
+                        print(lignes)
+            else :
+                print"Le chemin: ",argv[3], "\n n'existe pas ou n'est pas trouve."
+            
         if "-o" in argv:
-          print"chemin du dossier contenant les fichier du site est: ", argv[4]
-          file = glob.glob(argv[4])
+            result = os.path.exists(argv[5])
+            # test si un chemin existe 
+            if result == True:
+                path_file = os.listdir(argv[5])
+                if not os.path.isfile('test.txt'):
+                    file1 = os.path.join(argv[5],"test.txt")
+                    with open(file ,"r") as file:
+                        lignes = file.readlines()
+                        with open (file1,"w") as file1:
+                            for ligne in lignes:
+                                file1.write(ligne)
+                                file1.write("\n")                      
+                        
+            else :
+                print"Le chemin: ",argv[5], "\n n'existe pas ou n'est pas trouve."
+            print"chemin du dossier contenant les fichier du site est: ", argv[4]
+            file = glob.glob(argv[5])
         parser = argparse.ArgumentParser(description="creation de site statique")
         parser.add_argument(
             "-i",
