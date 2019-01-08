@@ -16,4 +16,4 @@ Pour avoir des option sur un script python argparse est utilisé
 Avant d'ajouter chaque argument on test si on a bien des arguments, ceux qui va contenir les arguments c'est sys.argv
 ou plus précisement la liste argv mis en parametre dans la fonction.
 
-
+Pour utilisé l'interface il faut juste péciser l'argument - h puis -i la direction du fichier à convertir puis -o (non obligatoire) direction du dossier dans lequel le dosiier aura convertit -t (non obligatoire) indique juste qi'il faut remplaçé le "REPLACE_ME" dans le fichier html. 
