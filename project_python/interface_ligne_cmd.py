@@ -6,8 +6,10 @@ import os
 import os.path
 import glob
 import getopt
-
-
+import codecs
+# permet la conversion de l'ascii en utf-8
+import markdown2
+# utilisé pour la conversion en html
 def main(argv):
     if len(argv) > 0:
     # Si la liste contenant les arguments 
@@ -26,9 +28,6 @@ def main(argv):
                         file = ligne
                         file = os.path.join(argv[3],file)
                         #je relie le chemin avec le nom du fichier
-                        with open(file ,"r") as file:
-                            lignes = file.readlines()
-                        print(lignes)
             else :
                 print"Le chemin: ",argv[3], "\n n'existe pas ou n'est pas trouve."
             
@@ -37,19 +36,21 @@ def main(argv):
             # test si un chemin existe 
             if result == True:
                 path_file = os.listdir(argv[5])
-                if not os.path.isfile('test.txt'):
-                    file1 = os.path.join(argv[5],"test.txt")
-                    with open(file ,"r") as file:
+                if not os.path.isfile('test.html'):
+                    file1 = os.path.join(argv[5],"test.html")
+                    with codecs.open(file ,"r","utf-8") as file:
                         lignes = file.readlines()
-                        with open (file1,"w") as file1:
+                        with codecs.open (file1,"w","utf-8") as file1:
                             for ligne in lignes:
+                                ligne = markdown2.markdown(ligne)
                                 file1.write(ligne)
                                 file1.write("\n")                      
                         
             else :
+                os.remove(argv[5])
                 print"Le chemin: ",argv[5], "\n n'existe pas ou n'est pas trouve."
-            print"chemin du dossier contenant les fichier du site est: ", argv[4]
-            file = glob.glob(argv[5])
+            print"chemin du dossier contenant les fichier du site est: ", argv[5]
+            
         parser = argparse.ArgumentParser(description="creation de site statique")
         parser.add_argument(
             "-i",
